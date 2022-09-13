@@ -1,0 +1,23 @@
+.breadcrumbs {
+  display: flex;
+
+   &__item {
+     &:nth-child(n + 2) {
+       &::before {
+         content: '/';
+         display: inline;
+         margin-right: 2px;
+         margin-left: 2px;
+         color: #959595;
+       }
+     }
+   }
+
+  &__text {
+    font-family: 'Frank';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    color: #959595;
+  }
+}

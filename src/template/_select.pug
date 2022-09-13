@@ -1,0 +1,10 @@
+mixin select(options, placeholder)
+    .select
+        .select__active
+            span.active-value=placeholder
+            svg.select__angle
+                use(href="/img/sprites/main.svg#angle")
+        select.custom-select(name="system" size="5")
+            each option in options
+                option(value=option)=option
+

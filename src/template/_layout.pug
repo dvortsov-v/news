@@ -1,0 +1,29 @@
+block pageVar
+	-
+		page = '';
+
+block title
+	-
+		var title = '';
+
+doctype html
+html(lang='ru')
+	head
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')
+		meta(http-equiv='Content-Type' content='text/html;charset=UTF-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
+		meta(name="format-detection" content="telephone=no")
+		link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css")
+		link(href=`/css/${page}.css` type="text/css" rel="stylesheet")
+	body(lang='ru-RU')
+		.wrapper
+			.wrapper__box
+				include _header
+				main.main
+					block page
+			block review
+
+			include _footer
+
+		script(src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js")
+		script(src=`/js/main.js` lang="text/javascript" type="module")

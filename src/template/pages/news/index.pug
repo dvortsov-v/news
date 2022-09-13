@@ -1,0 +1,81 @@
+extends ../../_layout
+block pageVar
+	-
+		page = 'news';
+block title
+	-
+		title = 'Госпитальная база закрыта, учреждение вернётся в «доковидный» режим после дезинфекции.  Роддом Златоуста вновь откроет свои двери 8 февраля';
+
+block page
+	-
+		var breadcrumbs = [
+				{
+					href: '#',
+					text: 'Главная'
+				},
+				{
+					href: 'news-list',
+					text:'Новости'
+				},
+				{
+					href: '',
+					text:'Медицина'
+				}
+			]
+	include ../../_breadcrumbs
+
+	section.news-informtion
+		h1.news-informtion__title=title
+		.news-informtion__breadcrumbs
+			+breadcrumbs(breadcrumbs)
+		.news-informtion__wrapper
+			.news-informtion__info
+				ul.news-informtion__themes
+					li.news-informtion__theme Медицина
+				span.news-informtion__date 29/01/2021
+			.news-informtion__main.news-informtion-content
+				h3 Ещё одна главная новость дня — с 8 февраля златоустовский роддом возвращается к привычному формату работы. Госпитальную базу для лечения больных коронавирусной инфекцией переводят в профильный режим. Приказ Министерство здравоохранения Челябинской области выпустило 27 января.
+				p Напомним, перепрофилировать родильный дом решили в связи с ежедневным большим приростом златоустовцев, заболевших ковид-19.  За это время лечение на госпитальной базе прошли свыше 1000 пациентов.
+				video(poster="/img/news/news-1.jpg" controls)
+				h3 Александр Дорофеев
+				span главный врач родильного дома г. Златоуста:
+				p «На сегодняшний день в МПЦ находятся 46 больных. Большая часть из них будет переведена на базу квартала Медик и меньшая часть – на базу долечивания, в район метзавода. В воскресенье к нам приезжает дезостанция для обработки всех помещений. С 1 по 7 число проводится заключительная дезинфекция всего родильного дома. С 8 числа мы начинаем принимать беременных и рожениц нашего города и горнозаводской зоны».
+				hr
+				p Подготовка к возвращению профильной деятельности больниц проводится тщательным образом. Это полная дезинфекция помещений, забор ряда лабораторных анализов. И только после разрешения всех инстанций медицинское учреждение поступает к работе. Златоуст — не единственный город, где в связи со стабилизацией обстановки с коронавирусной инфекцией медицинские объекты возвращаются к плановому приёму пациентов. Решение по сокращению коечных мест для больных ковидом принимается оперативным штабом по борьбе с коронавирусной инфекцией при Правительстве Челябинской области. Оставшиеся ковид-базы перейдут в прежний режим работы при условии улучшения ситуации.
+			.news-informtion__addition.news-informtion-addition
+				.news-informtion-addition__category.news-informtion-category
+					h5.news-informtion-category__title Автор материала
+					span.news-informtion-category__name Иван Анатольев
+				.news-informtion-addition__category.news-informtion-category
+					h5.news-informtion-category__title Теги
+					ul.news-informtion-category__tags
+						li.news-informtion-category__tag Роддом
+						li.news-informtion-category__tag Вакцинация
+						li.news-informtion-category__tag Коронавирус
+				.news-informtion-addition__category.news-informtion-category
+					h5.news-informtion-category__title Поделиться
+					include ../../_social-list
+
+block review
+	section.news-review
+		.news-review__wrapper
+			h3.news-review__title Оставьте свой комментарий
+			form.news-review__form
+				.news-review__row
+					label.news-review__field
+						input.news-review__input(placeholder="Имя")
+					label.news-review__field
+						input.news-review__input(placeholder="E-mail")
+					label.news-review__field.news-review__field--is-file
+						input.news-review__input(name="file" type="file" placeholder="Прикрепить фото" accept="image/png, image/jpeg")
+						svg.news-review__icon
+							use(href="/img/sprites/main.svg#clip")
+						span.news-review__label Прикрепить фото
+				.news-review__row
+					label.news-review__field
+						input.news-review__input(placeholder="Комментарий")
+				button.news-review__submit.news-review-submit(type="submit")
+					.news-review-submit__text Отправить
+
+
+

@@ -1,0 +1,139 @@
+.news-review {
+  background-color: $black;
+  padding-top: 90px;
+  padding-bottom: 108px;
+
+  @media (max-width: 800px) {
+    padding-top: 45px;
+    padding-bottom: 50px;
+  }
+
+  &__wrapper {
+    max-width: 1503px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    @media (max-width: 1503px) {
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+
+    @media (max-width: 600px) {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 125%;
+    color: #FFFFFF;
+
+    @media (max-width: 800px) {
+      font-size: 32px;
+    }
+  }
+
+  &__form {
+    max-width: 985px;
+    width: 100%;
+    margin-top: 54px;
+  }
+
+  &__row {
+    display: flex;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+
+    &:nth-child(n + 2) {
+      margin-top: 50px;
+    }
+  }
+
+  &__field {
+    flex: auto;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #fff;
+
+    &:nth-child(n + 2) {
+      margin-left: 50px;
+
+      @media (max-width: 800px) {
+        margin-top: 50px;
+        margin-left: 0;
+      }
+    }
+
+    &--is-file {
+      display: flex;
+      border-bottom: none;
+
+      .news-review__input {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        left: -9999px;
+        top: 0;
+      }
+    }
+  }
+
+  &__icon {
+    width: 17px;
+    height: 17px;
+    fill: #fff;
+  }
+
+  &__label {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 135%;
+    color: #FFFFFF;
+    margin-left: 10px;
+  }
+
+  &__input {
+    color: #fff;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 135%;
+    padding-right: 5px;
+    width: 100%;
+
+    &::placeholder {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 135%;
+      color: #fff;
+    }
+  }
+
+  &__submit {
+    margin-top: 82px;
+
+    @media (max-width: 600px) {
+      margin-top: 60px;
+
+    }
+  }
+}
+
+.news-review-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 162px;
+  height: 50px;
+  border: 2px solid #FFFFFF;
+  border-radius: 56px;
+
+  &__text {
+    color: #fff;
+  }
+}

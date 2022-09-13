@@ -1,0 +1,122 @@
+extends ../../_layout
+block pageVar
+	-
+		page = 'news-list';
+block title
+	-
+		title = 'Все новости';
+
+block page
+	-
+		var newsList = [
+			{
+				imgPath: '/img/news/news-1.jpg',
+				themes: ['Медицина', 'Общество'],
+				dateNews: '02/02/2021',
+				titleNews: 'Благодаря поддержке предпринимателей. Златоустовские поликлиники оснастили холодильными установками для хранения вакцины',
+				linkNews: '',
+				isShowDescriptionNews: false,
+				descriptionNews: 'Ещё одна главная новость дня — с 8 февраля златоустовский роддом возвращается к привычному формату работы. Госпитальную базу для лечения больных коронавирусной инфекцией переводят',
+			},
+			{
+				imgPath: '/img/news/news-2.jpg',
+				themes: ['Медицина'],
+				dateNews: '29/01/2021',
+				titleNews: 'Госпитальная база закрыта, учреждение вернётся в «доковидный» режим после дезинфекции.  Роддом Златоуста вновь откроет свои двери 8 февраля',
+				linkNews: '',
+				isShowDescriptionNews: false,
+				descriptionNews: '',
+			},
+			{
+				imgPath: '/img/news/news-3.jpg',
+				themes: ['Коммуналка'],
+				dateNews: '29/01/2021',
+				titleNews: 'Осторожно, сосульки! Оттепель на этой неделе привела к тому, что на крышах многих домов образовались опасные ледяные наросты',
+				linkNews: '',
+				isShowDescriptionNews: false,
+				descriptionNews: '',
+			},
+			{
+				imgPath: '/img/news/news-2.jpg',
+				themes: ['Политика'],
+				dateNews: '29/01/2021',
+				titleNews: 'В четыре раза меньше вопросов, чем обычно. В Златоусте прошло первое в 2021-м году Собрание депутатов',
+				linkNews: '',
+				isShowDescriptionNews: false,
+				descriptionNews: '',
+			},
+			{
+				imgPath: '/img/news/news-1.jpg',
+				themes: ['Коммуналка'],
+				dateNews: '29/01/2021',
+				titleNews: 'В Златоусте сотрудники теротдела проверят магазин, из которого выбрасывали строительный мусор на контейнерную площадку',
+				linkNews: '',
+				isShowDescriptionNews: false,
+				descriptionNews: '',
+			},
+			{
+				imgPath: '/img/news/news-4.jpg',
+				themes: ['Общество'],
+				dateNews: '29/01/2021',
+				titleNews: 'ДЧ: Первое Собрание депутатов 2021 года: планируется работа на весь год',
+				linkNews: '',
+				isShowDescriptionNews: false,
+				descriptionNews: '',
+			},
+		];
+		var breadcrumbs = [
+				{
+					href: '#',
+					text: 'Главная'
+				},
+				{
+					href: 'news-list',
+					text:'Новости'
+				}
+			];
+		var listPages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+	include components/_news
+	include ../../_select
+	include ../../_breadcrumbs
+
+	section.news-section
+		h1.news-section__title=title
+		.news-section__breadcrumbs
+			+breadcrumbs(breadcrumbs)
+		ul.news-section__filters.news-filters
+			li.news-filters__item
+				include ../../_datepicker
+			li.news-filters__item
+				+select(['Медицина','Общество','Комуналка','Политика','Спорт','Вектор развития'], 'Выбрать рубрику')
+		ul.news-section__list.news-list
+			each newsItem in newsList
+				li.news-list__item
+					+news(newsItem)
+		.news-section__basic
+			+news({
+				imgPath: '/img/news/news-1.jpg',
+				themes: ['Медицина', 'Общество'],
+				dateNews: '02/02/2021',
+				titleNews: 'Благодаря поддержке предпринимателей. Златоустовские поликлиники оснастили холодильными установками для хранения вакцины',
+				linkNews: '',
+				isShowDescriptionNews: true,
+				descriptionNews: 'Ещё одна главная новость дня — с 8 февраля златоустовский роддом возвращается к привычному формату работы. Госпитальную базу для лечения больных коронавирусной инфекцией переводят',
+			})(class="news--is-main")
+		.news-section__pages.news-section-pages
+			.news-section-pages__arrow.news-section-pages__arrow--prev
+				svg.news-section-pages__icon
+					use(href="/img/sprites/main.svg#arrow-left")
+			ul.news-section-pages__list
+				each num, indexNum in listPages
+					if(indexNum === 4 && indexNum !== listPages.length)
+						li.news-section-pages__number
+							span.news-section-pages__text ...
+					else if(indexNum < 3)
+						li.news-section-pages__number(class=indexNum === 0 ? 'news-section-pages__number--selected': '' )
+							a.news-section-pages__text=num
+					else if(indexNum === listPages.length - 1)
+						li.news-section-pages__number
+							a.news-section-pages__text=num
+			.news-section-pages__arrow.news-section-pages__arrow--next
+				svg.news-section-pages__icon
+					use(href="/img/sprites/main.svg#arrow-right")

@@ -1,0 +1,65 @@
+.input-date-wrap {
+  display: flex;
+  align-items: center;
+  padding: 20px 28px 20px 24px;
+  width: 468px;
+  height: 60px;
+  border: 2px solid $black;
+
+  @media (max-width: 600px) {
+    width: 268px;
+    height: 40px;
+  }
+
+  &__calendary {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    fill: $black;
+  }
+
+  &__icon {
+    width: 8px;
+    height: 4px;
+    flex: none;
+  }
+
+  &__field {
+    flex: auto;
+  }
+}
+
+.input-date {
+  font-size: 16px;
+  line-height: 135%;
+  color: $black;
+
+  &::placeholder {
+    font-size: 16px;
+    line-height: 135%;
+    color: $black;
+  }
+}
+
+.datepicker {
+  .button {
+    &.prev-btn,
+    &.next-btn {
+      color: $accent;
+    }
+  }
+
+  .days-of-week {
+    border-bottom: 2px solid $black;
+  }
+
+  .datepicker-cell {
+    &.day.focused {
+      border-radius: 50%;
+      background-color: transparent;
+      border: 1px solid $black;
+    }
+  }
+}
+

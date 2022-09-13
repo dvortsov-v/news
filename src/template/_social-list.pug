@@ -1,0 +1,8 @@
+.socials
+    span.socials__title Подписывайтесь на нас:
+    ul.socials__list
+        each social in [`youtube`, 'facebook', 'vk', 'odnoclassniki', 'instagram']
+            li.socials__item.social
+                a.social__link(href='')=item
+                    svg.social__icon
+                        use(href=`/img/sprites/socials.svg#${social}`)

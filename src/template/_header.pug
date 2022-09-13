@@ -1,0 +1,43 @@
+-
+    var menuList = [
+        {title: `Новости`},
+        {title: 'Телепроекты'},
+        {title: 'Реклама'},
+        {
+            title: 'Онлайн',
+            sublist: [
+                `Новости`, 'Телепроекты', 'Реклама', 'Онлайн', 'Программа передач', 'Еще'
+            ]
+        },
+        {title: 'Программа передач'},
+        {
+            title: 'Еще',
+            sublist: [
+                `Новости`, 'Телепроекты', 'Реклама', 'Онлайн', 'Программа передач', 'Еще'
+            ]
+        }
+    ]
+header.header
+    .header__actions.header-actions
+        button.header-actions__addition Предложить новость
+        .header-actions__box
+            a.header-actions__phone(href="tel+73513651711") 8 (3513) 65-17-11
+            .header-actions__search.search
+                input.search__input
+                svg.search__icon
+                    use(href="/img/sprites/main.svg#search")
+    nav.header__navigation.menu
+        ul.menu__list
+            each menuItem in menuList
+                li.menu__item.menu-item
+                    a.menu-item__link(href='')=`${menuItem.title}`
+                    if(menuItem.sublist)
+                        svg.menu-item__angle
+                            use(href="/img/sprites/main.svg#angle")
+                        ul.menu-item__submenu.menu-submenu
+                            each subMenuItem in menuItem.sublist
+                                li.menu-submenu__item
+                                    a.menu-submenu__link(href='')=subMenuItem
+        .menu__socials
+            include _social-list
+

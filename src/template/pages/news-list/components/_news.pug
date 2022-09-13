@@ -1,0 +1,16 @@
+mixin news(news)
+    .news(class!=attributes.class)
+        .news__wrap
+            img.news__image(src=news.imgPath)
+            .news__additional
+                .news__info
+                    ul.news__themes
+                        each theme in news.themes
+                            li.news__theme=theme
+                    span.news__date=news.dateNews
+                .news__title=news.titleNews
+                if(news.isShowDescriptionNews)
+                    .news__description=news.descriptionNews
+        a.news__link(href=news.linkNews)
+            svg.news__arrow
+                use(href="/img/sprites/main.svg#arrow-link")

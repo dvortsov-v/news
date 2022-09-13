@@ -1,0 +1,145 @@
+.news {
+  $self: &;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  @media (max-width: 600px) {
+    align-items: center;
+  }
+
+  &__wrap {
+    @media (max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__image {
+    width: 468px;
+    height: 264px;
+    background-color: #D7D6D6;
+
+    @media (max-width: 600px) {
+      width: 268px;
+      height: 164px;
+    }
+  }
+
+  &__info {
+    margin-top: 35px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__themes {
+    margin-right: 40px;
+    display: flex;
+  }
+
+  &__theme {
+    font-family: 'Frank';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    color: $accent;
+
+    &:nth-child(n + 2) {
+      margin-left: 20px;
+    }
+  }
+
+  &__date {
+    font-family: 'Frank';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 115%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #959595;
+  }
+
+  &__title {
+    margin-top: 12px;
+    font-family: 'Frank';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 135%;
+    color: $black;
+
+    @media (max-width: 600px) {
+      font-size: 16px;
+    }
+  }
+
+  &__description {
+    font-family: 'Frank';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 26px;
+    color: $black;
+  }
+
+  &__link {
+    margin-top: 46px;
+  }
+
+  &__arrow {
+      width: 20px;
+      height: 20px;
+  }
+
+  &--is-main {
+    padding: 49px 47px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-end;
+
+    #{$self}__wrap {
+      display: flex;
+
+      @media (max-width: 1450px) {
+        flex-direction: column;
+      }
+    }
+
+    #{$self}__additional {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 50px;
+      max-width: 597px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @media (max-width: 1450px) {
+        margin-top: 50px;
+        margin-left: 0;
+      }
+    }
+
+    #{$self}__info {
+      margin-top: 0;
+    }
+
+    #{$self}__description {
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* количество строк */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 1450px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

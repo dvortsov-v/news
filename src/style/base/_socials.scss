@@ -1,0 +1,35 @@
+.socials {
+  display: flex;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+
+  &__title {
+    font-family: 'Frank';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 135%;
+    color: $black;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    margin-left: 48px;
+  }
+
+  &__item {
+    &:nth-child(n +2) {
+      margin-left: 15px;
+    }
+  }
+}
+
+.social {
+  &__icon {
+    fill: $black;
+    width: 16px;
+    height: 16px;
+  }
+}
